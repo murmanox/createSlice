@@ -1,0 +1,41 @@
+{
+  "name": "@rbxts/rodux-tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "out/init.lua",
+  "scripts": {
+    "build": "rbxtsc --verbose",
+    "watch": "rbxtsc -w",
+    "test:build": "rbxtsc --verbose --type game --rojo studio.project.json",
+    "test:watch": "rbxtsc -w --verbose --type game --rojo studio.project.json",
+    "test:serve": "rojo serve ./studio.project.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/murmanox/rodux-tools.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/murmanox/rodux-tools/issues"
+  },
+  "homepage": "https://github.com/murmanox/rodux-tools#readme",
+  "types": "out/index.d.ts",
+  "files": [
+    "out",
+    "!**/*.tsbuildinfo"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@rbxts/compiler-types": "^2.0.4-types.1",
+    "@rbxts/testez": "^0.4.2-ts.0",
+    "@rbxts/types": "^1.0.670",
+    "typescript": "^5.0.3"
+  },
+  "dependencies": {
+    "@rbxts/rodux": "^3.0.0-ts.3"
+  }
+}
