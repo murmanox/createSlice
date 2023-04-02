@@ -16,9 +16,11 @@ const payloadGenerator = (payload: any) => ({ payload })
  * @param options
  * @returns
  */
-export function createSlice<State, Name extends string, CR extends SliceCaseReducers<State>>(
-	options: CreateSliceOptions<State, Name, CR>,
-): Slice<State, Name, CR> {
+export function createSlice<
+	State,
+	Name extends string,
+	CaseReducers extends SliceCaseReducers<State>,
+>(options: CreateSliceOptions<State, Name, CaseReducers>): Slice<State, Name, CaseReducers> {
 	const actionCreators: Record<string, AnyActionCreator> = {}
 	const sliceCaseReducersByName: Record<string, SliceCaseReducer<State>> = {}
 

@@ -15,13 +15,14 @@ export interface CreateSliceOptions<
 	 */
 	name: Name
 	/**
-	 * The initial state that should be used when the reducer is called the first time. This may also be a "lazy initializer" function, which should return an initial state value when called. This will be used whenever the reducer is called with `undefined` as its state value, and is primarily useful for cases like reading initial state from `localStorage`.
+	 * The initial state that should be used when the reducer is called the first time.
+	 * This may also be a "lazy initializer" function, which should return an initial state value when called.
+	 * This will be used whenever the reducer is called with `undefined` as its state value.
 	 */
 	initialState: State | (() => State)
 	/**
-	 * A mapping from action types to action-type-specific *case reducer*
-	 * functions. For every action type, a matching action creator will be
-	 * generated using `makeActionCreator()`.
+	 * A mapping from action types to action-type-specific *case reducer* functions.
+	 * For every action type, a matching action creator will be generated using `makeActionCreator()`.
 	 */
 	reducers: Reducers
 }
