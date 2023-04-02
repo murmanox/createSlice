@@ -9,4 +9,6 @@ export interface PayloadAction<Payload, Name extends string = string> extends Ro
 export type PayloadActionCreator<
 	CR extends SliceCaseReducer<any>,
 	ActionName extends string,
-> = Rodux.ActionCreator<ActionName, [payload: InferPayload<CR>], { payload: InferPayload<CR> }>
+> = unknown extends InferPayload<CR>
+	? Rodux.ActionCreator<ActionName, [], {}>
+	: Rodux.ActionCreator<ActionName, [payload: InferPayload<CR>], { payload: InferPayload<CR> }>

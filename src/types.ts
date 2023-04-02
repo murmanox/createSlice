@@ -1,11 +1,14 @@
-import { Reducer } from "@rbxts/rodux"
+import Rodux, { Reducer } from "@rbxts/rodux"
 
 import type { PayloadAction, PayloadActionCreator } from "./createAction"
 
+/**
+ * Options for `createSlice`
+ */
 export interface CreateSliceOptions<
 	State,
-	Name extends string,
-	Reducers extends SliceCaseReducers<State>,
+	Name extends string = string,
+	Reducers extends SliceCaseReducers<State> = SliceCaseReducers<State>,
 > {
 	/**
 	 * The slice's name. Used to namespace the generated action types.
@@ -23,7 +26,14 @@ export interface CreateSliceOptions<
 	reducers: Reducers
 }
 
-export interface Slice<State, Name extends string, CaseReducers extends SliceCaseReducers<State>> {
+/**
+ * The return value of `createSlice
+ */
+export interface Slice<
+	State,
+	Name extends string = string,
+	CaseReducers extends SliceCaseReducers<State> = SliceCaseReducers<State>,
+> {
 	/**
 	 * The slice's name.
 	 */
@@ -82,10 +92,12 @@ export type CaseReducerActions<
 	CaseReducers extends SliceCaseReducers<any>,
 	SliceName extends string,
 > = {
-	[ActionName in keyof CaseReducers]: PayloadAction<
-		InferPayload<CaseReducers[ActionName]>,
-		SliceActionName<SliceName, ActionName>
-	>
+	[ActionName in keyof CaseReducers]: unknown extends InferPayload<CaseReducers[ActionName]>
+		? Rodux.Action<SliceActionName<SliceName, ActionName>>
+		: PayloadAction<
+				InferPayload<CaseReducers[ActionName]>,
+				SliceActionName<SliceName, ActionName>
+		  >
 }[keyof CaseReducers]
 
 /**

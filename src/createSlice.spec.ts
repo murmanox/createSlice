@@ -54,7 +54,7 @@ export = () => {
 		})
 
 		it("Should return the correct type", () => {
-			expect(counterSlice.actions.decrement(undefined!).type).to.equal("counter/decrement")
+			expect(counterSlice.actions.decrement().type).to.equal("counter/decrement")
 		})
 	})
 
@@ -75,9 +75,9 @@ export = () => {
 
 		it("Actions should be dispatched from store", () => {
 			const { increment } = counterSlice.actions
-			store.dispatch(increment(undefined!))
-			store.dispatch(increment(undefined!))
-			store.dispatch(increment(undefined!))
+			store.dispatch(increment())
+			store.dispatch(increment())
+			store.dispatch(increment())
 			expect(store.getState().value).to.equal(3)
 		})
 
