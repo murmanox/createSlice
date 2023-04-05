@@ -1,6 +1,6 @@
 import { ActionCreator, createReducer, makeActionCreator } from "@rbxts/rodux"
 
-import type { CreateSliceOptions, Slice, SliceCaseReducer, SliceCaseReducers } from "./types"
+import type { CreateSliceOptions, Slice, SliceCaseReducers } from "./types"
 import { entries } from "./utils/object"
 
 type AnyActionCreator = ActionCreator<string, any[], any>
@@ -22,7 +22,7 @@ export function createSlice<
 	CaseReducers extends SliceCaseReducers<State>,
 >(options: CreateSliceOptions<State, Name, CaseReducers>): Slice<State, Name, CaseReducers> {
 	const actionCreators: Record<string, AnyActionCreator> = {}
-	const sliceCaseReducersByName: Record<string, SliceCaseReducer<State>> = {}
+	const sliceCaseReducersByName: SliceCaseReducers<State> = {}
 
 	for (const [name, caseReducer] of entries(options.reducers)) {
 		const actionName = `${options.name}/${name as string}`
@@ -40,6 +40,6 @@ export function createSlice<
 		name: options.name,
 		actions: actionCreators as any,
 		reducer: sliceReducer as any,
-		caseReducers: options.reducers,
+		caseReducers: options.reducers as any,
 	}
 }

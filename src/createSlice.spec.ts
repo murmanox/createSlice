@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /// <reference types="@rbxts/testez/globals" />
 
 import { Store } from "@rbxts/rodux"
 
-import type { PayloadAction } from "./createAction"
 import { createSlice } from "./createSlice"
+import { PayloadAction } from "./types"
 
 export = () => {
 	const grabASlice = () => {
@@ -14,7 +15,7 @@ export = () => {
 				increment(state) {
 					return { value: state.value + 1 }
 				},
-				decrement(state) {
+				decrement(state, action) {
 					return { value: state.value - 1 }
 				},
 				incrementByAmount(state, action: PayloadAction<number>) {
