@@ -14,7 +14,11 @@
     "type": "git",
     "url": "git+https://github.com/murmanox/rodux-tools.git"
   },
-  "keywords": [],
+  "keywords": [
+		"rodux",
+		"toolkit",
+		"createSlice"
+	],
   "author": "",
   "license": "ISC",
   "bugs": {
