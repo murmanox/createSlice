@@ -3,3 +3,6 @@
 /include
 *.tsbuildinfo
 /.vscode/settings.json
+
+/test/include
+/test/out
