@@ -1,6 +1,6 @@
 {
   "name": "@rbxts/create-slice",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Helpful function to easily define rodux reducers.",
   "main": "out/init.lua",
   "scripts": {
