@@ -78,7 +78,7 @@ const timerSlice = createSlice({
     reducers: {
         increment: counterSlice.caseReducers.increment,
         reset: () => ({ value: 0 }),
-				setTime: (state, action: PayloadAction<number>) => ({ value: action.payload })
+        setTime: (state, action: PayloadAction<number>) => ({ value: action.payload })
     }
 })
 
