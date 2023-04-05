@@ -5,12 +5,16 @@ import { Equals, Extends, If, IsAny } from "./utils/utils"
 /**
  * Infer the return type of a CaseReducer
  */
-export type InferReturnType<T> = T extends CaseReducer<any, any, infer R> ? R : never
+type InferReturnType<T> = T extends CaseReducer<any, any, infer R> ? R : never
 
 /**
  * Rodux action with a generic payload property. If the payload's type is void, Rodux.AnyAction will be used instead.
  */
-export type PayloadAction<T> = If<Equals<T, void>, Rodux.AnyAction, Rodux.Action & { payload: T }>
+export type PayloadAction<Payload> = If<
+	Equals<Payload, void>,
+	Rodux.AnyAction,
+	Rodux.Action & { payload: Payload }
+>
 
 /**
  * Options for `createSlice`
@@ -72,7 +76,8 @@ export type CaseReducer<State, Payload = any, Return extends State | void = Stat
 	state: State,
 	payload: PayloadAction<Payload>,
 ) => Return
-export type SliceCaseReducers<S, P = any> = Record<string, CaseReducer<S, P>>
+
+export type SliceCaseReducers<State, Payload = any> = Record<string, CaseReducer<State, Payload>>
 
 /**
  * Assign each case reducer to the CaseReducer type. Without this, defining a reducer
