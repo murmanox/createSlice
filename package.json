@@ -6,9 +6,10 @@
   "scripts": {
     "build": "rbxtsc --verbose",
     "watch": "rbxtsc -w",
-    "test:build": "rbxtsc --verbose --type game --rojo studio.project.json",
+		"clean": "rm -rf out/",
     "test:watch": "rbxtsc -w --verbose --type game --rojo studio.project.json",
-    "test:serve": "rojo serve ./studio.project.json"
+    "test:serve": "rojo serve ./studio.project.json",
+		"full": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
