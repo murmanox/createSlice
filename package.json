@@ -29,7 +29,9 @@
   "types": "out/index.d.ts",
   "files": [
     "out",
-    "!**/*.tsbuildinfo"
+    "!**/*.tsbuildinfo",
+		"!*.spec.lua",
+		"!*.spec.d.ts"
   ],
   "publishConfig": {
     "access": "public"
