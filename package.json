@@ -1,7 +1,7 @@
 {
-  "name": "@rbxts/rodux-tools",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@rbxts/create-slice",
+  "version": "1.0.1",
+  "description": "Helpful function to easily define rodux reducers.",
   "main": "out/init.lua",
   "scripts": {
     "build": "rbxtsc --verbose",
